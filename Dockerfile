@@ -24,6 +24,7 @@ RUN yum -y install R
 
 #install wget
 RUN yum -y install wget
+RUN rpm -e cracklib-dicts --nodeps && yum install cracklib-dicts -y
 
 #install R-studio
 RUN yum install -y openssl098e 
