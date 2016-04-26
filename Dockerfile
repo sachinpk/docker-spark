@@ -23,7 +23,7 @@ RUN yum -y install R
 
 
 #install wget
-RUN yum install wget
+RUN yum -y install wget
 
 #install R-studio
 RUN yum install -y openssl098e 
