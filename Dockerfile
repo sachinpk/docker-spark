@@ -21,4 +21,16 @@ RUN chmod 700 /etc/bootstrap.sh
 RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 RUN yum -y install R
 
+#install R-studio
+RUN yum install -y openssl098e 
+RUN wget https://download2.rstudio.org/rstudio-server-rhel-0.99.896-x86_64.rpm
+RUN yum install --nogpgcheck rstudio-server-rhel-0.99.896-x86_64.rpm
+
+RUN groupadd rstudio
+RUN useradd -g rstudio rstudio
+RUN echo rstudio | passwd --stdin rstudio
+EXPOSE 8787
+CMD /usr/lib/rstudio-server/bin/rserver --server-daemonize 0
+
+
 ENTRYPOINT ["/etc/bootstrap.sh"]
