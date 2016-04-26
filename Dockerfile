@@ -28,7 +28,7 @@ RUN yum -y install wget
 #install R-studio
 RUN yum install -y openssl098e 
 RUN wget https://download2.rstudio.org/rstudio-server-rhel-0.99.896-x86_64.rpm
-RUN yum install --nogpgcheck rstudio-server-rhel-0.99.896-x86_64.rpm
+RUN yum install -y --nogpgcheck rstudio-server-rhel-0.99.896-x86_64.rpm
 
 RUN groupadd rstudio
 RUN useradd -g rstudio rstudio
